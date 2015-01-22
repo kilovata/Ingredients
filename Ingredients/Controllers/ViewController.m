@@ -100,13 +100,19 @@
         NSInteger danger = [ingredient.danger integerValue];
         switch (danger) {
             case 1:
-                cell.imgViewDanger.image = [UIImage imageNamed:@"danger1"];
+                cell.labelTitle.textColor = [UIColor colorWithRed:99.f/255.f green:190.f/255.f blue:87.f/255.f alpha:1.f];
+                //cell.imgViewDanger.image = [UIImage imageNamed:@"danger1"];
                 break;
             case 2:
-                cell.imgViewDanger.image = [UIImage imageNamed:@"danger2"];
+                cell.labelTitle.textColor = [UIColor colorWithRed:249.f/255.f green:236.f/255.f blue:25.f/255.f alpha:1.f];
+                //cell.imgViewDanger.image = [UIImage imageNamed:@"danger2"];
                 break;
             case 3:
-                cell.imgViewDanger.image = [UIImage imageNamed:@"danger3"];
+                cell.labelTitle.textColor = [UIColor colorWithRed:246.f/255.f green:46.f/255.f blue:46.f/255.f alpha:1.f];
+                //cell.imgViewDanger.image = [UIImage imageNamed:@"danger3"];
+                break;
+            case 0:
+                cell.labelTitle.textColor = [UIColor grayColor];
                 break;
             default:
                 break;
@@ -135,22 +141,6 @@
 
 
 #pragma mark - UITableViewDelegate
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    if ([tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-        [tableView setSeparatorInset:UIEdgeInsetsZero];
-    }
-    
-    if ([tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-        [tableView setLayoutMargins:UIEdgeInsetsZero];
-    }
-    
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsZero];
-    }
-}
-
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [self.search resignFirstResponder];

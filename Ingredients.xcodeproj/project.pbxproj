@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B57E71B31A71781000B54663 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B57E71B21A71781000B54663 /* UIPlaceHolderTextView.m */; };
 		B58ADA761A70DEBA00913705 /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = B58ADA751A70DEBA00913705 /* Ingredient.m */; };
 		B5CA2D031A6FDA4F00A8146E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CA2D021A6FDA4F00A8146E /* main.m */; };
 		B5CA2D061A6FDA4F00A8146E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CA2D051A6FDA4F00A8146E /* AppDelegate.m */; };
@@ -39,6 +40,8 @@
 		47CE1886A7DB8472D21CD6E6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		9DA0B9196B46929351FEFAA2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F626F8ED3DAC537CB0D850 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B57E71B11A71781000B54663 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
+		B57E71B21A71781000B54663 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
 		B58ADA741A70DEBA00913705 /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
 		B58ADA751A70DEBA00913705 /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
 		B5CA2CFD1A6FDA4F00A8146E /* Ingredients.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ingredients.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +183,8 @@
 				B5CA2D4A1A6FE41500A8146E /* MainCell.h */,
 				B5CA2D4B1A6FE41500A8146E /* MainCell.m */,
 				B5CA2D4C1A6FE41500A8146E /* MainCell.xib */,
+				B57E71B11A71781000B54663 /* UIPlaceHolderTextView.h */,
+				B57E71B21A71781000B54663 /* UIPlaceHolderTextView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 				B5CA2D401A6FE2B500A8146E /* DataSource.m in Sources */,
 				B5CA2D411A6FE2B500A8146E /* IngredientsModel.m in Sources */,
 				B5CA2D091A6FDA4F00A8146E /* Ingredients.xcdatamodeld in Sources */,
+				B57E71B31A71781000B54663 /* UIPlaceHolderTextView.m in Sources */,
 				B5CA2D3E1A6FE2B500A8146E /* ViewController.m in Sources */,
 				B5CA2D031A6FDA4F00A8146E /* main.m in Sources */,
 			);

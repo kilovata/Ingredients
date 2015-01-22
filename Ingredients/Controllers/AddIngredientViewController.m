@@ -10,23 +10,27 @@
 #import "IngredientsModel.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "Ingredient.h"
+#import "UIPlaceHolderTextView.h"
 
 @interface AddIngredientViewController () {
+    
     NSInteger danger;
 }
 
-@property (weak, nonatomic) IBOutlet UITextField *textFieldTitle;
-@property (weak, nonatomic) IBOutlet UITextView *textViewText;
-@property (weak, nonatomic) IBOutlet UIView *viewText;
 @property (strong, nonatomic) IngredientsModel *model;
 @property (strong, nonatomic) Ingredient *ingredient;
+
+@property (weak, nonatomic) IBOutlet UIView *viewTitle;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldTitle;
+
+@property (weak, nonatomic) IBOutlet UIView *viewDanger;
 @property (weak, nonatomic) IBOutlet UIButton *buttonDanger1;
 @property (weak, nonatomic) IBOutlet UIButton *buttonDanger2;
 @property (weak, nonatomic) IBOutlet UIButton *buttonDanger3;
-@property (weak, nonatomic) IBOutlet UIScrollView *scroll;
+
+@property (weak, nonatomic) IBOutlet UIPlaceHolderTextView *textViewText;
 
 - (IBAction)actionDanger:(id)sender;
-
 
 @end
 
@@ -49,10 +53,12 @@
     
     danger = 0;
     self.model = [IngredientsModel new];
+    
     self.textFieldTitle.autocorrectionType = UITextAutocorrectionTypeNo;
     self.textViewText.autocorrectionType = UITextAutocorrectionTypeNo;
     CGFloat offset = 25.f;
     self.textViewText.textContainerInset = UIEdgeInsetsMake(10.f, offset, 10.f, offset);
+    self.textViewText.placeholder = @"Введите описание вещества";
     
     if (self.ingredient) {
         if (self.ingredient.title) {
@@ -79,10 +85,6 @@
             }
         }
     }
-    
-    CGSize size = self.textViewText.contentSize;
-    CGFloat height = size.height + self.textViewText.frame.origin.y + self.viewText.frame.origin.y;
-    self.scroll.contentSize = CGSizeMake(self.scroll.frame.size.width, height);
 }
 
 
@@ -92,12 +94,33 @@
         if (self.ingredient) {
             [self.model updateIngredient:self.ingredient withTitle:self.textFieldTitle.text andText:self.textViewText.text andDanger:danger];
         } else {
-            [self.model addIngredientWithTitle:self.textFieldTitle.text andText:self.textViewText.text andDanger:danger];
+            
+            if (self.textFieldTitle.text.length > 0) {
+                [self.model addIngredientWithTitle:self.textFieldTitle.text andText:self.textViewText.text andDanger:danger];
+                [SVProgressHUD showSuccessWithStatus:@"Вещество сохранено"];
+            }
         }
     }
-    [SVProgressHUD showSuccessWithStatus:@"Вещество сохранено"];
     [self.textFieldTitle resignFirstResponder];
     [self.textViewText resignFirstResponder];
+    self.navigationItem.rightBarButtonItem = nil;
+}
+
+
+- (void)actionSaveText {
+    
+    if (self.textFieldTitle.isFirstResponder) {
+        [self.textFieldTitle resignFirstResponder];
+    }
+    if (self.textViewText.isFirstResponder) {
+        [self.textViewText resignFirstResponder];
+    }
+    
+    if (self.textFieldTitle.text.length > 0) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Сохранить" style:UIBarButtonItemStylePlain target:self action:@selector(actionSave)];
+    } else {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
 }
 
 
@@ -127,6 +150,12 @@
 
 
 #pragma mark - UITextFieldDelegate
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Готово" style:UIBarButtonItemStylePlain target:self action:@selector(actionSaveText)];
+}
+
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     [textField resignFirstResponder];
@@ -134,69 +163,36 @@
 }
 
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    
-    if (self.textFieldTitle.text.length > 1) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Сохранить" style:UIBarButtonItemStylePlain target:self action:@selector(actionSave)];
-    } else {
-        self.navigationItem.rightBarButtonItem = nil;
-    }
-    return YES;
-}
-
-
 #pragma mark - UITextViewDelegate
 - (void)textViewDidBeginEditing:(UITextView *)textView {
     
-    //[self.view insertSubview:self.viewText aboveSubview:self.scroll];
+    self.textFieldTitle.alpha = 0.1f;
+    self.viewDanger.alpha = 0.1f;
     
-    CGRect rectViewText = self.viewText.frame;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Готово" style:UIBarButtonItemStylePlain target:self action:@selector(actionSaveText)];
+    
     CGRect rectTextView = textView.frame;
-    rectViewText.origin.y = 0;
-    rectTextView.size.height = 207.f;
-    rectViewText.size.height = rectTextView.origin.y + rectTextView.size.height;
+    rectTextView.origin.y = 64.f;
+    rectTextView.size.height = 288.f;
+    
     [UIView animateWithDuration:0.3f animations:^{
-        
-        //self.scroll.frame = rectViewText;
-        self.scroll.contentSize = rectViewText.size;
-        self.viewText.frame = rectViewText;
         textView.frame = rectTextView;
     }];
-    
-    textView.scrollEnabled = YES;
 }
 
 
 - (void)textViewDidEndEditing:(UITextView *)textView {
     
-    CGRect rectViewText = self.viewText.frame;
+    self.textFieldTitle.alpha = 1.f;
+    self.viewDanger.alpha = 1.f;
+    
     CGRect rectTextView = textView.frame;
-    rectViewText.origin.y = 340.f;
-    rectTextView.size.height = 259.f;
+    rectTextView.origin.y = 271.f;
+    rectTextView.size.height = 297.f;
+    
     [UIView animateWithDuration:0.3f animations:^{
-        self.viewText.frame = rectViewText;
         textView.frame = rectTextView;
     }];
-    
-    CGSize sizeContent = textView.contentSize;
-    NSLog(@"%@", NSStringFromCGSize(sizeContent));
-}
-
-
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
-    
-    if (range.length == 0) {
-        if ([text isEqualToString:@"\n"]) {
-            [textView resignFirstResponder];
-            return NO;
-        }
-    }
-    if (textView.text.length > 1) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Сохранить" style:UIBarButtonItemStylePlain target:self action:@selector(actionSave)];
-    } else {
-        self.navigationItem.rightBarButtonItem = nil;
-    }
-    return YES;
 }
 
 

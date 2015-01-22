@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -10,11 +10,10 @@
                 <outlet property="buttonDanger1" destination="Qcs-04-rOw" id="BJq-2M-VV8"/>
                 <outlet property="buttonDanger2" destination="0Xe-jK-baO" id="w4i-OX-Z31"/>
                 <outlet property="buttonDanger3" destination="DLd-M1-Ol0" id="Bd4-xe-Sgl"/>
-                <outlet property="scroll" destination="V5U-Wf-25m" id="589-Cj-chg"/>
                 <outlet property="textFieldTitle" destination="65y-Dv-Hfq" id="Bq4-0x-Gul"/>
                 <outlet property="textViewText" destination="oCv-Ya-c9Q" id="hhO-iP-FW6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="viewText" destination="J40-Vm-VoZ" id="St7-ed-S51"/>
+                <outlet property="viewDanger" destination="Jak-nA-wJP" id="zEk-A6-VZI"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -22,126 +21,87 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="V5U-Wf-25m">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Название вещества" minimumFontSize="10" id="65y-Dv-Hfq">
+                    <rect key="frame" x="20" y="84" width="270" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="26"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="5lV-Ax-xwG"/>
+                    </connections>
+                </textField>
+                <view contentMode="scaleToFill" id="Jak-nA-wJP">
+                    <rect key="frame" x="20" y="154" width="270" height="97"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название вещества" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mXU-Qx-8UQ">
-                            <rect key="frame" x="30" y="30" width="239" height="21"/>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Qcs-04-rOw">
+                            <rect key="frame" x="0.0" y="0.0" width="70" height="97"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Aop-Qm-5Tn">
-                            <rect key="frame" x="0.0" y="81" width="320" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </imageView>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="65y-Dv-Hfq">
-                            <rect key="frame" x="30" y="81" width="260" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            <state key="normal" image="danger">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" image="danger1"/>
+                            <state key="highlighted" image="danger1"/>
                             <connections>
-                                <outlet property="delegate" destination="-1" id="5lV-Ax-xwG"/>
+                                <action selector="actionDanger:" destination="-1" eventType="touchUpInside" id="E81-RK-v0E"/>
                             </connections>
-                        </textField>
-                        <view contentMode="scaleToFill" id="Jak-nA-wJP">
-                            <rect key="frame" x="0.0" y="111" width="320" height="117"/>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0Xe-jK-baO">
+                            <rect key="frame" x="100" y="0.0" width="70" height="97"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Уровень опасности" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YeQ-5I-siq">
-                                    <rect key="frame" x="30" y="30" width="239" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Qcs-04-rOw">
-                                    <rect key="frame" x="78" y="81" width="36" height="36"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" image="danger1">
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <state key="selected" image="danger1Prs"/>
-                                    <state key="highlighted" image="danger1Prs"/>
-                                    <connections>
-                                        <action selector="actionDanger:" destination="-1" eventType="touchUpInside" id="E81-RK-v0E"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DLd-M1-Ol0">
-                                    <rect key="frame" x="206" y="81" width="36" height="36"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" image="danger3">
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <state key="selected" image="danger3Prs"/>
-                                    <state key="highlighted" image="danger3Prs"/>
-                                    <connections>
-                                        <action selector="actionDanger:" destination="-1" eventType="touchUpInside" id="jg2-kk-R1K"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0Xe-jK-baO">
-                                    <rect key="frame" x="142" y="81" width="36" height="36"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" image="danger2">
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <state key="selected" image="danger2Prs"/>
-                                    <state key="highlighted" image="danger2Prs"/>
-                                    <connections>
-                                        <action selector="actionDanger:" destination="-1" eventType="touchUpInside" id="1r9-Fx-m3c"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" red="0.79607843140000001" green="0.85490196080000003" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
-                        <view contentMode="scaleToFill" id="J40-Vm-VoZ">
-                            <rect key="frame" x="0.0" y="228" width="320" height="340"/>
+                            <state key="normal" image="danger">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" image="danger2"/>
+                            <state key="highlighted" image="danger2"/>
+                            <connections>
+                                <action selector="actionDanger:" destination="-1" eventType="touchUpInside" id="1r9-Fx-m3c"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DLd-M1-Ol0">
+                            <rect key="frame" x="200" y="0.0" width="70" height="97"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Описание вещества" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EY2-PK-HvH">
-                                    <rect key="frame" x="30" y="30" width="239" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" id="oCv-Ya-c9Q">
-                                    <rect key="frame" x="0.0" y="81" width="320" height="259"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="-1" id="BZS-R4-Iqf"/>
-                                    </connections>
-                                </textView>
-                            </subviews>
-                            <color key="backgroundColor" red="0.79607843140000001" green="0.85490196080000003" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
+                            <state key="normal" image="danger">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" image="danger3"/>
+                            <state key="highlighted" image="danger3"/>
+                            <connections>
+                                <action selector="actionDanger:" destination="-1" eventType="touchUpInside" id="jg2-kk-R1K"/>
+                            </connections>
+                        </button>
                     </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flasks" id="cc9-80-KTo">
+                    <rect key="frame" x="0.0" y="292" width="320" height="276"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="oCv-Ya-c9Q" customClass="UIPlaceHolderTextView">
+                    <rect key="frame" x="0.0" y="271" width="320" height="297"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     <connections>
-                        <outlet property="delegate" destination="-1" id="HJz-tk-UNa"/>
+                        <outlet property="delegate" destination="-1" id="BZS-R4-Iqf"/>
                     </connections>
-                </scrollView>
+                </textView>
             </subviews>
-            <color key="backgroundColor" red="0.79607843140000001" green="0.85490196080000003" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-            <nil key="simulatedTopBarMetrics"/>
-            <point key="canvasLocation" x="544" y="195"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <point key="canvasLocation" x="353" y="184"/>
         </view>
     </objects>
     <resources>
-        <image name="danger1" width="36" height="36"/>
-        <image name="danger1Prs" width="36" height="36"/>
-        <image name="danger2" width="36" height="36"/>
-        <image name="danger2Prs" width="36" height="36"/>
-        <image name="danger3" width="36" height="36"/>
-        <image name="danger3Prs" width="36" height="36"/>
+        <image name="danger" width="105" height="145"/>
+        <image name="danger1" width="105" height="145"/>
+        <image name="danger2" width="105" height="145"/>
+        <image name="danger3" width="105" height="145"/>
+        <image name="flasks" width="197" height="171"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
