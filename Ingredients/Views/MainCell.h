@@ -11,5 +11,6 @@
 @interface MainCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *labelTitle;
+@property (weak, nonatomic) IBOutlet UIImageView *imgViewDanger;
 
 @end

@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <MagicalRecord/CoreData+MagicalRecord.h>
 
+@class Ingredient;
+
 @interface IngredientsModel : NSObject
 
 - (NSFetchRequest*)getRequestIngredients;
-- (void)addIngredientWithTitle:(NSString*)title;
-- (void)addIngredientWithText:(NSString*)text andTitle:(NSString*)title;
+- (void)addIngredientWithTitle:(NSString *)title andText:(NSString*)text andDanger:(NSInteger)danger;
+- (void)updateIngredient:(Ingredient*)ingredient withTitle:(NSString*)title andText:(NSString*)text andDanger:(NSInteger)danger;
+- (void)deleteIngredient:(Ingredient*)ingredient;
 
 @end

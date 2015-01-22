@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B58ADA761A70DEBA00913705 /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = B58ADA751A70DEBA00913705 /* Ingredient.m */; };
 		B5CA2D031A6FDA4F00A8146E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CA2D021A6FDA4F00A8146E /* main.m */; };
 		B5CA2D061A6FDA4F00A8146E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CA2D051A6FDA4F00A8146E /* AppDelegate.m */; };
 		B5CA2D091A6FDA4F00A8146E /* Ingredients.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5CA2D071A6FDA4F00A8146E /* Ingredients.xcdatamodeld */; };
@@ -21,7 +22,6 @@
 		B5CA2D4E1A6FE41500A8146E /* MainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5CA2D4C1A6FE41500A8146E /* MainCell.xib */; };
 		B5CA2D521A6FE7BD00A8146E /* AddIngredientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CA2D501A6FE7BD00A8146E /* AddIngredientViewController.m */; };
 		B5CA2D531A6FE7BD00A8146E /* AddIngredientViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5CA2D511A6FE7BD00A8146E /* AddIngredientViewController.xib */; };
-		B5CA2D571A6FF73E00A8146E /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = B5CA2D561A6FF73E00A8146E /* Ingredient.m */; };
 		D5E5A46709E4487FE7A78457 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA0B9196B46929351FEFAA2 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +39,8 @@
 		47CE1886A7DB8472D21CD6E6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		9DA0B9196B46929351FEFAA2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F626F8ED3DAC537CB0D850 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B58ADA741A70DEBA00913705 /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
+		B58ADA751A70DEBA00913705 /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
 		B5CA2CFD1A6FDA4F00A8146E /* Ingredients.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ingredients.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5CA2D011A6FDA4F00A8146E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5CA2D021A6FDA4F00A8146E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -63,8 +65,6 @@
 		B5CA2D4F1A6FE7BD00A8146E /* AddIngredientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddIngredientViewController.h; sourceTree = "<group>"; };
 		B5CA2D501A6FE7BD00A8146E /* AddIngredientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddIngredientViewController.m; sourceTree = "<group>"; };
 		B5CA2D511A6FE7BD00A8146E /* AddIngredientViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddIngredientViewController.xib; sourceTree = "<group>"; };
-		B5CA2D551A6FF73E00A8146E /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
-		B5CA2D561A6FF73E00A8146E /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +109,6 @@
 		B5CA2CFF1A6FDA4F00A8146E /* Ingredients */ = {
 			isa = PBXGroup;
 			children = (
-				B5CA2D541A6FF73E00A8146E /* CoreData */,
 				B5CA2D041A6FDA4F00A8146E /* AppDelegate.h */,
 				B5CA2D051A6FDA4F00A8146E /* AppDelegate.m */,
 				B5CA2D331A6FE2B500A8146E /* Controllers */,
@@ -117,6 +116,8 @@
 				B5CA2D3C1A6FE2B500A8146E /* Views */,
 				B5CA2D101A6FDA4F00A8146E /* Images.xcassets */,
 				B5CA2D071A6FDA4F00A8146E /* Ingredients.xcdatamodeld */,
+				B58ADA741A70DEBA00913705 /* Ingredient.h */,
+				B58ADA751A70DEBA00913705 /* Ingredient.m */,
 				B5CA2D001A6FDA4F00A8146E /* Supporting Files */,
 			);
 			path = Ingredients;
@@ -181,15 +182,6 @@
 				B5CA2D4C1A6FE41500A8146E /* MainCell.xib */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		B5CA2D541A6FF73E00A8146E /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				B5CA2D551A6FF73E00A8146E /* Ingredient.h */,
-				B5CA2D561A6FF73E00A8146E /* Ingredient.m */,
-			);
-			path = CoreData;
 			sourceTree = "<group>";
 		};
 		C70594613A6370022DF31F47 /* Pods */ = {
@@ -347,7 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5CA2D061A6FDA4F00A8146E /* AppDelegate.m in Sources */,
-				B5CA2D571A6FF73E00A8146E /* Ingredient.m in Sources */,
+				B58ADA761A70DEBA00913705 /* Ingredient.m in Sources */,
 				B5CA2D521A6FE7BD00A8146E /* AddIngredientViewController.m in Sources */,
 				B5CA2D4D1A6FE41500A8146E /* MainCell.m in Sources */,
 				B5CA2D401A6FE2B500A8146E /* DataSource.m in Sources */,

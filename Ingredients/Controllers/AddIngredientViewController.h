@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Ingredient;
+
 @interface AddIngredientViewController : UIViewController
+
+- (id)initWithIngredient:(Ingredient*)ingredient;
 
 @end

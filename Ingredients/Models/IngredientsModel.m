@@ -14,11 +14,11 @@
 
 - (NSFetchRequest*)getRequestIngredients {
     
-    return [Ingredient MR_requestAllSortedBy:@"title" ascending:NO];
+    return [Ingredient MR_requestAllSortedBy:@"title" ascending:YES];
 }
 
 
-- (void)addIngredientWithTitle:(NSString*)title {
+- (void)addIngredientWithTitle:(NSString *)title andText:(NSString*)text andDanger:(NSInteger)danger {
     
     Ingredient *ingredient = [Ingredient MR_findFirstByAttribute:@"title" withValue:title];
     if (!ingredient) {
@@ -28,19 +28,36 @@
         ingredient.idIngredient = @(count);
     }
     ingredient.title = title;
+    if (text) {
+        ingredient.text = text;
+    }
+    if (danger > 0) {
+        ingredient.danger = @(danger);
+    }
+    
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
 
-- (void)addIngredientWithText:(NSString*)text andTitle:(NSString*)title {
+- (void)updateIngredient:(Ingredient*)ingredient withTitle:(NSString*)title andText:(NSString*)text andDanger:(NSInteger)danger {
     
-    Ingredient *ingredient = [Ingredient MR_findFirstByAttribute:@"title" withValue:title];
-    if (!ingredient) {
-        ingredient = [Ingredient MR_createEntity];
-        NSInteger count = [Ingredient MR_countOfEntities];
-        count++;
-        ingredient.idIngredient = @(count);
+    if (title) {
+        ingredient.title = title;
     }
-    ingredient.text = text;
+    if (text) {
+        ingredient.text = text;
+    }
+    if (danger > 0) {
+        ingredient.danger = @(danger);
+    }
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+}
+
+
+- (void)deleteIngredient:(Ingredient*)ingredient {
+    
+    [ingredient MR_deleteEntity];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
 

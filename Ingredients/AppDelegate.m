@@ -23,9 +23,14 @@
     
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor grayColor], NSFontAttributeName : [UIFont fontWithName:@"Helvetica-Light" size:17.f]}];
     [[UINavigationBar appearance] setTintColor:[UIColor grayColor]];
+    [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setFont:[UIFont fontWithName:@"Helvetica-Light" size:17.f]];
+    //[[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setTintColor:[UIColor grayColor]];
+    [[UIBarButtonItem appearanceWhenContainedIn: [UISearchBar class], nil] setTintColor:[UIColor grayColor]];
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:
      @{NSForegroundColorAttributeName:[UIColor grayColor], NSFontAttributeName:[UIFont fontWithName:@"Helvetica-Light" size:17.f]}
                                                                                             forState:UIControlStateNormal];
+    
+    [[UISearchBar appearance] setTintColor:[UIColor grayColor]];
     ViewController *vc = [ViewController new];
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = navVC;
