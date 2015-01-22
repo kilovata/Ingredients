@@ -6,6 +6,12 @@
 // project.
 
 
+// CHCSVParser
+#define COCOAPODS_POD_AVAILABLE_CHCSVParser
+#define COCOAPODS_VERSION_MAJOR_CHCSVParser 2
+#define COCOAPODS_VERSION_MINOR_CHCSVParser 1
+#define COCOAPODS_VERSION_PATCH_CHCSVParser 0
+
 // MagicalRecord
 #define COCOAPODS_POD_AVAILABLE_MagicalRecord
 #define COCOAPODS_VERSION_MAJOR_MagicalRecord 2

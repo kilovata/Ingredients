@@ -1,15 +1,18 @@
 PODS:
+  - CHCSVParser (2.1.0)
   - MagicalRecord (2.2):
     - MagicalRecord/Core (= 2.2)
   - MagicalRecord/Core (2.2)
   - SVProgressHUD (1.1.2)
 
 DEPENDENCIES:
+  - CHCSVParser
   - MagicalRecord
   - SVProgressHUD (~> 1.1)
 
 SPEC CHECKSUMS:
+  CHCSVParser: 1ebc9783114707e2b6f83b20fe0f246eb2fabae0
   MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
   SVProgressHUD: da7a49e789af645d9279ffbca62318945a832438
 
-COCOAPODS: 0.36.0.beta.1
+COCOAPODS: 0.35.0

@@ -12,8 +12,10 @@
 #import "Ingredient.h"
 #import "MainCell.h"
 #import "AddIngredientViewController.h"
+#import <MessageUI/MessageUI.h>
+#import <CHCSVParser/CHCSVParser.h>
 
-@interface ViewController ()<NSFetchedResultsControllerDelegate>
+@interface ViewController ()<NSFetchedResultsControllerDelegate, MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (strong, nonatomic) DataSource *dataSource;
@@ -39,6 +41,7 @@
     }
     
     self.title = @"Лаборатория";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(export)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addIngredient)];
     
     [[UITextField appearanceWhenContainedIn:[UISearchBar class], nil] setFont:[UIFont fontWithName:@"Helvetica-Light" size:17.f]];
@@ -67,6 +70,53 @@
     [super viewDidDisappear:animated];
     
     self.search.text = @"";
+}
+
+
+- (void)createCSV {
+    
+    NSArray *arrayIngredients = [Ingredient MR_findAllSortedBy:@"idIngredient" ascending:YES];
+    
+    for (int i=0; i<arrayIngredients.count; i++) {
+        
+        Ingredient *ingredient = arrayIngredients[i];
+        NSArray *arrayPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+        NSString *docDir = [arrayPaths objectAtIndex:0];
+        NSString *path = [docDir stringByAppendingString:@"/Ingredients.csv"];
+        CHCSVWriter *writer = [[CHCSVWriter alloc] initForWritingToCSVFile:path];
+        
+        [writer writeLineOfFields:@[@"№", @"Название", @"Описание", @"Опасность"]];
+        [writer writeField:[NSString stringWithFormat:@"%@", ingredient.idIngredient]];
+        [writer writeField:ingredient.title];
+        [writer writeField:ingredient.text];
+        [writer writeField:[NSString stringWithFormat:@"%@", ingredient.danger]];
+    }
+}
+
+
+- (void)export {
+    
+    if ([MFMailComposeViewController canSendMail]) {
+        
+        MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
+        controller.mailComposeDelegate = self;
+        controller.modalPresentationStyle = UIModalPresentationCurrentContext;
+        
+        NSArray *arrayPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+        NSString *docDir = [arrayPaths objectAtIndex:0];
+        NSString *Path = [docDir stringByAppendingString:@"/Ingredients.csv"];
+        NSData *csvData = [NSData dataWithContentsOfFile:Path];
+        [controller addAttachmentData:csvData mimeType:@"text/csv" fileName:@"Ingredients.csv"];
+        [self presentViewController:controller animated:YES completion:nil];
+    } else {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"mailto://"]];
+    }
+}
+
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller  didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

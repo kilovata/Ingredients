@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-CHCSVParser.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-MagicalRecord.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>8CF18F3B22D61F0614901AC4</key>
+		<key>226C102AFEB6C81B3127C1B5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D6E07424F0048CFB9E351F59</key>
+		<key>672BD69C8BE0C239ABE3C49C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E45E77D970DB2F00503E7C9B</key>
+		<key>74EF3216527869E7A095F039</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A0C22AB5BDD39AC4BAF3DB55</key>
 		<dict>
 			<key>primary</key>
 			<true/>
